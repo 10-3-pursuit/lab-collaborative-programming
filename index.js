@@ -48,10 +48,10 @@ function textScroller(str) {
 function betweenExtremes() {}
 
 /**
- * Returns the difference between the largest and smallest number in the array
+ * Returns the difference between the largest and smallest number in the array <--- MISTAKE (function wants you to return a string of translated text)
  * @param {String} message - A string to translate.
  * @param {Object[]} dictionary - A morse code dictionary ( use the one imported at the top of this file)
- * @returns {Number} The message in morse code
+ * @returns {String} The message in morse code
  * Example: "A new month"
  * .- / -. . .-- / -- --- -. - ....
  */
@@ -67,14 +67,7 @@ function morseCodeTranslator(message, dictionary) {
       morseCodeTranslationStr += dictionary[char] + " "; //acts like how .push() works for arrays
     }
   }
-  // morseCodeTranslationStr output according to test should be ".... . .-.. .-.. --- .-- --- .-. .-.. -.." if input is string "Hello world", so spaces must be added and taken into account in string length
-  let morseCodeTranslationArr = morseCodeTranslationStr.trim().split(" "); // .trim() gets rid of trailing extra spaces
-// let translatedWordLengthsArrofNums = [];
-// for (let morseWord of morseCodeTranslationArr) {
-//   translatedWordLengthsArrofNums.push(morseWord.length);
-// }
-//    let difference = Math.max(...translatedWordLengthsArrofNums) - Math.min(...translatedWordLengthsArrofNums);
-//  return difference; 
+  return morseCodeTranslationStr.trim(); // .trim() removes trailing spaces
 }
 
 module.exports = {
