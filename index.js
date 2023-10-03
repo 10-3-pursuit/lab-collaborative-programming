@@ -38,9 +38,10 @@ function textScroller() {
   // if the input is an empty string, return an empty array
 
   // initalize variable for length of the word 
-  // make loop that iterates length times
-  // move the last letter to the front .slice()
+  // make loop that iterates length times (should have all combinations)
+  // move the last letter to the front .slice() (should scroll in order)
   // push to result
+  // return result
 
 }
 
@@ -70,14 +71,36 @@ if(numbers === ''){
 }
 
 /**
- * Returns the difference between the largest and smallest number in the array
+ *
  * @param {String} message - A string to translate.
  * @param {Object[]} dictionary - A morse code dictionary ( use the one imported at the top of this file)
- * @returns {Number} The message in morse code
+ * @returns {String} The message in morse code
  * Example: "A new month"
  * .- / -. . .-- / -- --- -. - ....
  */
-function morseCodeTranslator() {}
+function morseCodeTranslator(message, dictionary) {
+  
+  // initialize empty array to store each translated letter
+  const resultLetters = []
+
+  // convert the message to uppercase
+  message = message.toUpperCase()
+
+  // convert message into an array of words
+  const messageArray = message.split(' ')
+
+  // iterate over each word of the array
+  for(let word of messageArray){
+    // iterate over each character of word
+    for(let letter of word){
+      // add the translated letter to the resultLetters array by matching letter with key
+      resultLetters.push(dictionary[letter])
+    }
+  }
+  // return the array as a string 
+  return resultLetters.join(' ')
+}
+
 
 module.exports = {
   sortByStringLength,
