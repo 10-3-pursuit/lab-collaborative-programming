@@ -21,7 +21,9 @@ function textScroller() {}
  * @param {Number[]} numbers - An array of numbers.
  * @returns {Number} The difference between the largest and smallest number.
  */
-function betweenExtremes() {}
+function betweenExtremes() {
+  // get Math.max and Math.min results
+}
 
 /**
  * Returns the difference between the largest and smallest number in the array
@@ -31,7 +33,14 @@ function betweenExtremes() {}
  * Example: "A new month"
  * .- / -. . .-- / -- --- -. - ....
  */
-function morseCodeTranslator() {}
+function morseCodeTranslator(message, dictionary) {
+  const wordsArr = ;
+
+  for (let word of wordsArr) {
+    const lettersArr = word.split(" ");
+    
+  }
+}
 
 module.exports = {
   sortByStringLength,
