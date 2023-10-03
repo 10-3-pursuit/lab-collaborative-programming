@@ -40,7 +40,26 @@ function textScroller() {}
  * @param {Number[]} numbers - An array of numbers.
  * @returns {Number} The difference between the largest and smallest number.
  */
-function betweenExtremes() {}
+function betweenExtremes(numbers) {
+// if the input is an empty string, return an empty array 
+if(numbers === ''){
+  return []
+}
+// iterate through numbers, filter out any that are not numbers
+// if any elements found, return the original array
+  const found = numbers.filter((num) => typeof num !== 'number')
+  if(found.length > 0){
+    return numbers
+  }
+
+  // find smallest number Math.min(...numbers)
+  let smallestNum = Math.min(...numbers)
+  // find largest number Math.max(...numbers)
+  let largestNum = Math.max(...numbers)
+  // return the difference 
+  return largestNum - smallestNum
+
+}
 
 /**
  * Returns the difference between the largest and smallest number in the array
