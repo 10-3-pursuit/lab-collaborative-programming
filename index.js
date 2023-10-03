@@ -53,24 +53,24 @@ function textScroller(word) {
  * @returns {Number} The difference between the largest and smallest number.
  */
 function betweenExtremes(numbers) {
- //initialize a min and max variable...in order to to keep track of the smallest and largest number in the loop.
- let max = numbers[0];
- let min = numbers[0];
- 
- //iterate the array of numbers and check if we have any non-integers. we can do this by looping through the numbers array and using "typeof".
- for(let num of numbers){
-   if(typeof num != "number"){
-     return numbers;
-   }
- // we create a conditional for min and max variables, so that our current min is greater than numbers @ num. Our min will update to that num. The same is done with our max but reverse. 
-   if(min > num){
-     min = num;
-   }
-   if(max < num){
-     max = num;
-   }
- }
- // then we subtract the min from max to get the difference, then return the output.
+  //initialize a min and max variable...in order to to keep track of the smallest and largest number in the loop.
+  let max = numbers[0];
+  let min = numbers[0];
+  
+  //iterate the array of numbers and check if we have any non-integers. we can do this by looping through the numbers array and using "typeof".
+  for(let num of numbers){
+    if(typeof num != "number"){
+      return numbers;
+    }
+  // we create a conditional for min and max variables, so that our current min is greater than numbers @ num. Our min will update to that num. The same is done with our max but reverse. 
+    if(min > num){
+      min = num;
+    }
+    if(max < num){
+      max = num;
+    }
+  }
+  // then we subtract the min from max to get the difference, then return the output.
 return max - min;
 
 };
@@ -89,28 +89,33 @@ return max - min;
 // to do this we'll need to match the values given with the keys that correspond to those values in the dictionary object 
 // afterwards we'll recreate the message with those key strings and return the decrypted message 
 
-function morseCodeTranslator(decryptedMessage, morseCodeDictionary) {
-  // initialize a variable for encrypted message 
-  let encryptedMessage = "";
-
-  // initialize a variable called (splitWords)) and we'll use split() method to break apart each element of the message string 
-  let splitWords = decryptedMessage.split(" "); 
-
-  // create a for-of loop to iterate through each element of the splitWords array 
-    for (const word of splitWords) {
-      //create another for-of loop to iterate through each element of word
-      for (const letter of word) {
-        //
-        let morseCharacter = morseCodeDictionary[letter];
-        if (morseCharacter) {
-          encryptedMessage += morseCharacter
-        }
+function morseCodeTranslator(message, dictionary) {
+  //break the message into individual words first
+  const morseWords = []
+  // split the message into words using spaces as separators
+  const words = message.split(' ')
+  //time to loop through each word in our message
+  for (const word of words) {
+    // now, we'll store the Morse code for each character in this word
+    const morseChars = []
+    //time to check each character in the word
+    for (const char of word) {
+      //we'll use the dictionary to get the Morse code in uppercase
+      const morseCode = dictionary[char.toUpperCase()]
+      //if there's a Morse code for the character, let's add it
+      if (morseCode) {
+        morseChars.push(morseCode)
       }
     }
-
-  return encryptedMessage; 
+    //join all the Morse code characters for this word with spaces
+    const morseWord = morseChars.join(' ')
+    // add our Morse code word to the result array
+    morseWords.push(morseWord)
+  }
+  // join all the morse code words with spaces and return the result
+  return morseWords.join(' ')
 }
-// console.log(morseCodeDictionary); 
+
 
 module.exports = {
   sortByStringLength,
