@@ -7,10 +7,10 @@ const morseCodeDictionary = require("./morse-code-dictionary.json");
  */
 function sortByStringLength(arrStr) {
   // make a variable for function parameter (which is an array of strings)
-  // we need to iterate through the array to get to the element which is a string type
-  // we need to find out the length of each each element string type
-  // the length will be a number type
-  // we can use .sort() method but for numbers to sort by length
+  // we need to iterate through the array of strings to get to the elements which are of string type
+  // we need to find out the length of each each element string type, the length will be a number type (using .length)
+  // we can use .sort() method (for numbers) to sort by length (in ascending order so shortest can be first)
+  // arrow function syntax (implicit): arrayOfStrings.sort((elementA, elementB) => elementB.length - elementA.length);
   return arrStr.sort((a, b) => a.length - b.length);
 };
 
@@ -63,11 +63,11 @@ function morseCodeTranslator(message, dictionary) {
   // to translate we can iterate through the string characters and see if the letters in the message matches the keys in the dictionary in order to extract the value stored in the key
   let morseCodeTranslationStr = "";
   for (let char of message.toUpperCase()) {
-    if (dictionary[char]) {
-      morseCodeTranslationStr += dictionary[char] + " "; //acts like how .push() works for arrays
+    if (dictionary[char]) { // if char and dictionary key match it'll evaluate to true to execute next line
+      morseCodeTranslationStr += dictionary[char] + " "; // += for strings acts like how .push() works for arrays in this case
     }
   }
-  return morseCodeTranslationStr.trim(); // .trim() removes trailing spaces
+  return morseCodeTranslationStr.trim(); // returns translated string built by iterating through message input, and .trim() removes trailing spaces
 }
 
 module.exports = {
