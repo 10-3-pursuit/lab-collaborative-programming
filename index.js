@@ -5,7 +5,18 @@ const morseCodeDictionary = require("./morse-code-dictionary.json");
  * @param {String[]}  - An array of strings.
  * @returns {string[]} An array of strings.
  */
-function sortByStringLength() {}
+function sortByStringLength(arrStr) {
+  // we iterate thru the array to get to the element which is a string type
+
+  //we need to find out the length of each element string
+
+  //the length will be a number type
+
+  //we can use .sort() but for numbers to sort by length
+
+  // dont forget to put the variable in the fx parameter b4 running the test
+  return arrStr.sort((a, b) => a.length - b.length)
+}
 
 /**
  * Returns an array of the word in all scrolling positions.
