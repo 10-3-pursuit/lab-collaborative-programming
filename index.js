@@ -5,7 +5,26 @@ const morseCodeDictionary = require("./morse-code-dictionary.json");
  * @param {String[]}  - An array of strings.
  * @returns {string[]} An array of strings.
  */
-function sortByStringLength() {}
+function sortByStringLength(sentence) {
+
+  // iterate over the array
+  // sort by length, shortest first
+  const sortedSentence = sentence.sort((a, b) => { 
+    const wordA = a.length
+    const wordB = b.length
+    if(wordA < wordB){
+      return -1
+    } else if(wordA > wordB){
+      return 1
+    } else {
+      return 0
+    }
+  })
+  // should return the original array if any element is not a string
+  // return sorted array
+  return sortedSentence
+}
+
 
 /**
  * Returns an array of the word in all scrolling positions.
