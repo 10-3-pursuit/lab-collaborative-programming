@@ -22,8 +22,29 @@ function sortByStringLength(arr) {
  * Example: "Hello"
  * [ 'elloH', 'lloHe', 'loHel', 'oHell', 'Hello' ]
  */
-function textScroller() {
+// Add the parameter "word" as indicated above
+function textScroller(word) {
+
+  // for each loop, we want to remove the last character and place it in the front which we will then push into the array
+  // initialize an empty array to store our iterations called "scrolledList"
+  let scrolledList = []
   
+  // Based on the length of the string that's going to indicate the amount of scrolling positions 
+  // create a for-loop and iterate over each index of the given string
+  for (let i = 0; i < word.length ; i++){
+    // we want to use the slice method in order to remove the last element 
+    // initialize a variable that stores an array of all string elements, we need this to use array mutation later on
+    let newWord = word.slice(i) + word.slice(0, i)
+    scrolledList.push(newWord)
+  }
+  // the code was not giving us the expected outcome in the end so we must change the last element to move it to the front
+  // initialize another variable that will allow us to use .shift()
+  let final = scrolledList.shift()
+  // we must add that change to the array in order to get the expected outcome we desire
+  scrolledList.push(final)
+
+  // return the scrolledList in the end
+  return scrolledList
 }
 
 /**
