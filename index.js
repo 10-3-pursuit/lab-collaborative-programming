@@ -68,12 +68,18 @@ function betweenExtremes(numbers) {
  * .- / -. . .-- / -- --- -. - ....
  */
 function morseCodeTranslator(message, dictionary) {
+  //Created a new array using the spread operator, that spreads each character in the string into it's own elemenet.
   let characterArr = [...message]
+  //Creates a new array, removing any spaces using .filter.
+  let filteredArr = characterArr.filter(char => char !== ' ')
+  //Created a variable that holds an empty string
   let morseMessage = ""
-  for (const char of characterArr) {
+  //'for of' loop iterates through filteredArr, and uses 'char' as a key to access the values inside 'dictionary'.
+  for (const char of filteredArr) {
     morseMessage += dictionary[char.toUpperCase()] + " "
   }
-  return morseMessage
+  //Returns morse code string with the last space removed
+  return morseMessage.slice(0, -1)
 }
 
 module.exports = {
