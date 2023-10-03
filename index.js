@@ -33,15 +33,27 @@ function sortByStringLength(sentence) {
  * Example: "Hello"
  * [ 'elloH', 'lloHe', 'loHel', 'oHell', 'Hello' ]
  */
-function textScroller() {
+function textScroller(word) {
   // initialize empty result array
-  // if the input is an empty string, return an empty array
+  const result = []
 
-  // initalize variable for length of the word 
+  // if the input is an empty string, return an empty array
+  if(word === ''){
+    return result
+  }
+
   // make loop that iterates length times (should have all combinations)
-  // move the last letter to the front .slice() (should scroll in order)
-  // push to result
+  for(let i = 0; i < word.length; i++){
+    // create a new word by moving the first character to the end (should scroll in order)
+    const newWord = word.slice(1) + word.slice(0, 1)
+    // add new word to result array
+    result.push(newWord)
+    // Update the word for the next iteration
+    word = newWord
+  }
+
   // return result
+  return result
 
 }
 
