@@ -33,7 +33,16 @@ function sortByStringLength(sentence) {
  * Example: "Hello"
  * [ 'elloH', 'lloHe', 'loHel', 'oHell', 'Hello' ]
  */
-function textScroller() {}
+function textScroller() {
+  // initialize empty result array
+  // if the input is an empty string, return an empty array
+
+  // initalize variable for length of the word 
+  // make loop that iterates length times
+  // move the last letter to the front .slice()
+  // push to result
+
+}
 
 /**
  * Returns the difference between the largest and smallest number in the array
@@ -58,7 +67,6 @@ if(numbers === ''){
   let largestNum = Math.max(...numbers)
   // return the difference 
   return largestNum - smallestNum
-
 }
 
 /**
