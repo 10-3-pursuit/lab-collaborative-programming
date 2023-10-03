@@ -22,6 +22,7 @@ function sortByStringLength(arrStr) {
  * [ 'elloH', 'lloHe', 'loHel', 'oHell', 'Hello' ]
  */
 function textScroller(str) {
+  // function takes one parameter (string) - created variable str for function parameter
   // info: "scrolling" means rearranging the letters, but following a specific rule where you always move the first letter to the end!
   // initialize variable with empty array to use .push() array method to push scrolled words
   // iterate through string then use .slice() method first to remove first letter. Use .slice() again to remove rest of the wrd excluding first letter. Then concatenating both together inside for loop.
@@ -39,7 +40,6 @@ function textScroller(str) {
   return arrScrolledWords;
 };
 
-
 /**
  * Returns the difference between the largest and smallest number in the array
  * @param {Number[]} numbers - An array of numbers.
@@ -55,7 +55,27 @@ function betweenExtremes() {}
  * Example: "A new month"
  * .- / -. . .-- / -- --- -. - ....
  */
-function morseCodeTranslator() {}
+function morseCodeTranslator(message, dictionary) {
+  // function takes 2 parameters - a string and an object of strings
+  // Mistake in JS doc: returns the difference between largest and smallest number in the array - so not the morsecode message itself but the length of string created using morse code
+  // output according to test should be string (not array) ".... . .-.. .-.. --- .-- --- .-. .-.. -.." if input is string "Hello world", so spaces must be added and taken into account
+  // initialize an empty string so we can put the translated values of the message into it later and get the length of the string created
+  // to translate we can iterate through the string characters and see if the letters in the message matches the keys in the dictionary in order to extract the value stored in the key
+  let morseCodeTranslationStr = "";
+  for (let char of message.toUpperCase()) {
+    if (dictionary[char]) {
+      morseCodeTranslationStr += dictionary[char] + " "; //acts like how .push() works for arrays
+    }
+  }
+  // morseCodeTranslationStr output according to test should be ".... . .-.. .-.. --- .-- --- .-. .-.. -.." if input is string "Hello world", so spaces must be added and taken into account in string length
+  let morseCodeTranslationArr = morseCodeTranslationStr.trim().split(" "); // .trim() gets rid of trailing extra spaces
+// let translatedWordLengthsArrofNums = [];
+// for (let morseWord of morseCodeTranslationArr) {
+//   translatedWordLengthsArrofNums.push(morseWord.length);
+// }
+//    let difference = Math.max(...translatedWordLengthsArrofNums) - Math.min(...translatedWordLengthsArrofNums);
+//  return difference; 
+}
 
 module.exports = {
   sortByStringLength,
