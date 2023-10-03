@@ -52,7 +52,28 @@ function textScroller(word) {
  * @param {Number[]} numbers - An array of numbers.
  * @returns {Number} The difference between the largest and smallest number.
  */
-function betweenExtremes() {}
+function betweenExtremes(numbers) {
+ //initialize a min and max variable...in order to to keep track of the smallest and largest number in the loop.
+ let max = numbers[0];
+ let min = numbers[0];
+ 
+ //iterate the array of numbers and check if we have any non-integers. we can do this by looping through the numbers array and using "typeof".
+ for(let num of numbers){
+   if(typeof num != "number"){
+     return numbers;
+   }
+ // we create a conditional for min and max variables, so that our current min is greater than numbers @ num. Our min will update to that num. The same is done with our max but reverse. 
+   if(min > num){
+     min = num;
+   }
+   if(max < num){
+     max = num;
+   }
+ }
+ // then we subtract the min from max to get the difference, then return the output.
+return max - min;
+
+};
 
 /**
 
