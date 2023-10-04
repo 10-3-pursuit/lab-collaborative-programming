@@ -58,9 +58,8 @@ function betweenExtremes(numbersArr) {
   }}
   if (hasNaNInArr) {
     return numbersArr;
-  } else {
-    return Math.max(...numbersArr) - Math.min(...numbersArr);
   }
+  return Math.max(...numbersArr) - Math.min(...numbersArr);
 };
 
 /**
