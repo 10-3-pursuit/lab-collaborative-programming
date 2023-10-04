@@ -50,10 +50,16 @@ function betweenExtremes(numbersArr) {
   //return original array if array elements are NaN
   //OTHERWISE return difference between min and max numbers within array (returns a number type)
   if (numbersArr.length === 0) return [];
+  let hasNaNInArr = false; // will change to true if has only numbers in array
   for (let num of numbersArr) {
-    if (typeof num === "number" && typeof num !== "number" || typeof num !== "number") return numbersArr;
-//    if (typeof num !== "number") return numbersArr;
-    if (typeof num === "number") return Math.max(...numbersArr) - Math.min(...numbersArr);
+    if (typeof num !== "number") {
+    hasNaNInArr = true; // to use later for if statement and return statement outside of the for loop aka iterations (if this is true function should return original array)
+    break; // break out of loop aka stop iterating as soon as its finds any element that's NaN (can probably use .find() instead)
+  }}
+  if (hasNaNInArr) {
+    return numbersArr;
+  } else {
+    return Math.max(...numbersArr) - Math.min(...numbersArr);
   }
 };
 
@@ -78,7 +84,7 @@ function morseCodeTranslator(message, dictionary) {
     }
   }
   return morseCodeTranslationStr.trim(); // returns translated string built by iterating through message input, and .trim() removes trailing spaces
-}
+};
 
 module.exports = {
   sortByStringLength,
