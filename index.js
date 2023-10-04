@@ -45,7 +45,17 @@ function textScroller(str) {
  * @param {Number[]} numbers - An array of numbers.
  * @returns {Number} The difference between the largest and smallest number.
  */
-function betweenExtremes() {}
+function betweenExtremes(numbersArr) {
+  //return empty array if argument is an empty array
+  //return original array if array elements are NaN
+  //OTHERWISE return difference between min and max numbers within array (returns a number type)
+  if (numbersArr.length === 0) return [];
+  for (let num of numbersArr) {
+    if (typeof num === "number" && typeof num !== "number" || typeof num !== "number") return numbersArr;
+//    if (typeof num !== "number") return numbersArr;
+    if (typeof num === "number") return Math.max(...numbersArr) - Math.min(...numbersArr);
+  }
+};
 
 /**
  * Returns the difference between the largest and smallest number in the array <--- MISTAKE (function wants you to return a string of translated text)
