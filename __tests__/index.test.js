@@ -66,7 +66,7 @@ describe("textScroller()", () => {
 });
 
 describe("betweenExtremes()", () => {
-  test("Should return an empty array if the input is an empty string", () => {
+  test("Should return a number representing the difference between the largest and smallest numbers", () => {
     const actual = betweenExtremes(numbers);
     const expected = 433;
     expect(actual).toEqual(expected);
